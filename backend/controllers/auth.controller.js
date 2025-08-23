@@ -68,11 +68,8 @@ class AuthController {
 
   async refreshToken(req, res, next) {
     try {
-      const { refreshToken } = req.body;
-      if (!refreshToken) {
-        return errorResponse(res, 422, "Yangilash tokeni kiritish majburiy");
-      }
-
+      const { refreshToken } = req.dto;
+      
       const decoded = await jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
       const user = await userService.getIdByUser(decoded.id);
       if (!user) {

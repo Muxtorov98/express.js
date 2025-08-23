@@ -9,6 +9,7 @@ const checkPermission = require('../middlewares/checkPermission');
 const validateDto = require('../middlewares/validate-dto');
 const LoginDto = require('../dtos/login.dto');
 const RegisterDto = require('../dtos/register.dto');
+const RefreshTokenDto = require("../dtos/refreshToken.dto")
 
 const router = express.Router();
 
@@ -20,7 +21,7 @@ const asyncHandler = fn => (req, res, next) => {
 // ===== Auth routes ===== (odatda umumiy, permission talab qilmaydi)
 router.post('/register', validateDto(RegisterDto), asyncHandler(authController.register.bind(authController)));
 router.post('/login', validateDto(LoginDto), asyncHandler(authController.login.bind(authController)));
-router.post('/refresh-token', asyncHandler(authController.refreshToken.bind(authController)));
+router.post('/refresh-token', validateDto(RefreshTokenDto), asyncHandler(authController.refreshToken.bind(authController)));
 router.get('/me', authenticateToken, asyncHandler(authController.getMe.bind(authController)));
 
 // ===== RBAC (roles management) =====
