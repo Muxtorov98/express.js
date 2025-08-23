@@ -72,6 +72,29 @@ docker compose up -d --build
 - MongoDB: localhost:27017
 - Mongo Express (GUI): http://localhost:8081 (login: admin, password: admin123)
 
+# setup
+```bash
+docker compose exec backend node /usr/src/app/scripts/setup.js
+```
+
+# Admin
+  - name: `Admin`
+  - email: `admin@example.com`
+  - password: `123456'`
+  - role: `admin` 
+
+# Manager
+  - name: `Manager`
+  - email: `manager@example.com`
+  - password: `123456'`
+  - role: `manager` 
+
+# User
+  - name: `User`
+  - email: `user@example.com`
+  - password: `123456'`
+  - role: `user` 
+
 
 🛠 # API Endpoints
 🔑 # Authentication
