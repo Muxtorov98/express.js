@@ -1,33 +1,42 @@
-🚀 Express.js API Boilerplate
-A robust and scalable REST API built with Node.js and Express.js, integrated with MongoDB, JWT authentication, Swagger documentation, and Role-Based Access Control (RBAC). This boilerplate is designed to help developers quickly set up a production-ready backend with modular architecture and Docker support.
+# 🚀 Express.js API Boilerplate
 
-✨ Features
+A robust and scalable **REST API** built with **Node.js** and **Express.js**, designed for rapid development with **MongoDB**, **JWT authentication**, **Role-Based Access Control (RBAC)**, **Swagger documentation**, and **Redis-based SMS queuing**. This boilerplate provides a production-ready backend with a modular architecture, Docker support, and background job processing for tasks like SMS notifications.
 
-✅ Express.js Framework: Fast and lightweight web framework for Node.js.
-✅ MongoDB Integration: Seamless connection with Mongoose for data modeling.
-✅ JWT Authentication: Secure access and refresh token system.
-✅ Role-Based Access Control (RBAC): Granular permissions (e.g., admin, user) for secure resource management.
-✅ Swagger Documentation: Auto-generated API docs with Swagger UI.
-✅ Global Error Handling: Centralized middleware for consistent error responses.
-✅ Modular Architecture: Organized into controllers, services, repositories, and routes.
-✅ Docker Compose: Easy deployment with Node.js, MongoDB, and Mongo Express (GUI).
-✅ Redis Queue (Optional): Background job processing for tasks like SMS notifications.
+---
 
+## ✨ Features
 
-📋 Prerequisites
+- ✅ **Express.js Framework**: Fast and lightweight web framework for Node.js.
+- ✅ **MongoDB with Mongoose**: Seamless database integration for data modeling.
+- ✅ **JWT Authentication**: Secure access and refresh token system.
+- ✅ **Role-Based Access Control (RBAC)**: Granular permissions for roles like `admin` and `user`.
+- ✅ **Swagger Documentation**: Auto-generated API docs with Swagger UI.
+- ✅ **Redis Queue (BullMQ)**: Asynchronous job processing for SMS notifications.
+- ✅ **Twilio Integration**: Send SMS notifications with validation using DTOs.
+- ✅ **Global Error Handling**: Centralized middleware for consistent error responses.
+- ✅ **Modular Architecture**: Organized into controllers, services, repositories, and routes.
+- ✅ **Docker Compose**: Easy deployment with Node.js, MongoDB, Redis, and Mongo Express.
 
-Node.js (v24.6.0 or higher)
-Docker and Docker Compose (for containerized deployment)
-MongoDB (if running locally without Docker)
-Redis (optional, for queue-based features like SMS)
-Twilio Account (optional, for SMS notifications)
-Git (for cloning the repository)
+---
 
+## 📋 Prerequisites
 
-📦 Installation
-1. Clone the Repository
+Before you begin, ensure you have the following installed:
+- **Node.js** (v24.6.0 or higher): `node --version`
+- **Docker** and **Docker Compose**: `docker --version` and `docker-compose --version`
+- **Git**: `git --version`
+- **Redis** (optional for local setup): `redis-server --version`
+- **Twilio Account** (for SMS): Obtain credentials from [Twilio Console](https://www.twilio.com/console)
+
+---
+
+## 📦 Installation
+
+### 1. Clone the Repository
+```bash
 git clone https://github.com/Muxtorov98/express.js.git
 cd express.js
+```
 
 2. Set Up Environment Variables
 Create a .env file in the backend directory with the following configuration:
