@@ -40,6 +40,7 @@ cd express.js
 
 2. Set Up Environment Variables
 Create a .env file in the backend directory with the following configuration:
+```.env
 PORT=3000
 MONGO_URI=mongodb://mongo:27017/mydb
 JWT_SECRET=supersecretkey
@@ -49,23 +50,27 @@ TWILIO_AUTH_TOKEN=your_twilio_auth_token
 TWILIO_PHONE_NUMBER=+1234567890
 REDIS_HOST=localhost
 REDIS_PORT=6379
-
-3. Install Dependencies
+```
+4. ## Install Dependencies
+```bash
 npm install
-
-4. Run Locally
-Start the development server:
+```
+5. ## Run Locally
+- Start the development server:
+```bash
 npm run dev
-
-5. Run with Docker
-Use Docker Compose to spin up the Node.js backend, MongoDB, and Mongo Express:
+```
+6. ## Run with Docker
+- Use Docker Compose to spin up the Node.js backend, MongoDB, and Mongo Express:
+```bash
 docker compose up -d --build
+```
 
-This will start:
+# This will start:
 
-Node.js Backend: http://localhost:3000
-MongoDB: localhost:27017
-Mongo Express (GUI): http://localhost:8081 (login: admin, password: admin123)
+- Node.js Backend: http://localhost:3000
+- MongoDB: localhost:27017
+- Mongo Express (GUI): http://localhost:8081 (login: admin, password: admin123)
 
 
 🛠 API Endpoints
