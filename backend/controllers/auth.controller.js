@@ -4,29 +4,17 @@ const ResponseUsers = require('../resources/ResourcesUser');
 const ResponseAuth = require('../resources/ResponseAuth');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { plainToClass } = require('class-transformer');
-const { validate } = require('class-validator');
-const RegisterDto = require('../dtos/register.dto');
-const LoginDto = require('../dtos/login.dto');
 
 class AuthController {
   async register(req, res, next) {
     try {
-
-      const registerDto = plainToClass(RegisterDto, req.body);
-      
-      const errors = await validate(registerDto);
-      if (errors.length > 0) {
-        const errorMessages = errors.map(err => Object.values(err.constraints)).flat();
-        return errorResponse(res, 400, errorMessages.join(', '));
-      }
-
-      const { name, email, password } = registerDto;
+      const { name, email, password } = req.dto;
 
       const existingUser = await userService.getUserByEmail(email);
       if (existingUser) {
         return errorResponse(res, 400, "Foydalanuvchi allaqachon mavjud");
       }
+
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -46,22 +34,13 @@ class AuthController {
         refreshToken,
       });
     } catch (err) {
-      next(err);
+       next(err);
     }
   }
 
   async login(req, res, next) {
     try {
-
-      const loginDto = plainToClass(LoginDto, req.body);
-      
-      const errors = await validate(loginDto);
-      if (errors.length > 0) {
-        const errorMessages = errors.map(err => Object.values(err.constraints)).flat();
-        return errorResponse(res, 400, errorMessages.join(', '));
-      }
-
-      const { email, password } = loginDto;
+      const { email, password } = req.dto;
 
       const user = await userService.getUserByEmail(email);
       if (!user) {
@@ -83,7 +62,7 @@ class AuthController {
         refreshToken,
       });
     } catch (err) {
-      next(err);
+       next(err);
     }
   }
 

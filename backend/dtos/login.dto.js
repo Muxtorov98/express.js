@@ -1,7 +1,7 @@
 const { IsEmail, IsNotEmpty, IsString } = require('class-validator');
 
 class LoginDto {
-  @IsEmail({}, { message: "Noto'g'ri email formati dto" })
+  @IsEmail({}, { message: "Noto'g'ri email formati" })
   @IsNotEmpty({ message: "Email kiritish majburiy" })
   email;
 
@@ -10,8 +10,8 @@ class LoginDto {
   password;
 
   constructor(data = {}) {
-    this.email = data.email || '';
-    this.password = data.password || '';
+    this.email = data.email;
+    this.password = data.password;
   }
 }
 
