@@ -137,7 +137,7 @@ docker compose up -d --build
 - Use the Authorize button in Swagger UI to input a Bearer token for authenticated endpoints.
 
 📂 # Project Structure
-`
+```bash
 express.js/
 ├── backend/
 │   ├── config/              # Database and Swagger configurations
@@ -159,7 +159,7 @@ express.js/
 ├── docker-compose.yml       # Docker configuration
 ├── package.json             # Project dependencies and scripts
 └── README.md                # Project documentation
-`
+```
 
 🐳 # Docker Compose Setup
 - The docker-compose.yml file defines three services:
