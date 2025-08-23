@@ -41,7 +41,7 @@ router.post(
 router.put(
   '/roles/:name',
   authenticateToken,
-  checkPermission("update:role"),
+  //checkPermission("update:role"),
   asyncHandler(roleController.updateRole.bind(roleController))
 );
 router.delete(

@@ -4,6 +4,7 @@ const ResponseUsers = require("../resources/ResourcesUser")
 const ResponseAuth = require("../resources/ResponseAuth");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { loginSchema } = require("../middlewares/validation")
 
 class UserController {
   async createUser(req, res, next) {
@@ -95,9 +96,14 @@ class UserController {
 }
 
 
-  async login(req, res, next) {
+async login(req, res, next) {
   try {
     const { email, password } = req.body;
+
+    const { error } = loginSchema.validate({ email, password });
+    if (error) {
+      return errorResponse(res, 400, error.details[0].message);
+    }
 
     const user = await userService.getUserByEmail(email);
     if (!user) {
@@ -113,11 +119,12 @@ class UserController {
     const refreshToken = await this.generateRefreshToken(user);
     const responseData = ResponseAuth.fromUser(user);
 
-     return successResponse(res, 200, "User logged in successfully", { responseData, token, refreshToken });
-   } catch (err) {
-     next(err);
-   }
+    return successResponse(res, 200, "User logged in successfully", { responseData, token, refreshToken });
+  } catch (err) {
+    next(err);
   }
+}
+
 
   async refreshToken(req, res, next) {
     try {
