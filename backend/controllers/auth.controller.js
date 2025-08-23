@@ -78,7 +78,7 @@ class AuthController {
 
       const newAccessToken = await this.generateToken(user);
       const newRefreshToken = await this.generateRefreshToken(user);
-      const responseData = ResponseUsers.fromUser(user);
+      const responseData = ResponseAuth.fromUser(user);
 
       return successResponse(res, 200, "Token muvaffaqiyatli yangilandi", {
         responseData,
