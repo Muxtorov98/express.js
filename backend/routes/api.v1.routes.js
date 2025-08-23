@@ -3,6 +3,7 @@ const userController = require("../controllers/user.controller");
 const waybillController = require("../controllers/waybill.controller");
 const waybillChildrenController = require("../controllers/waybillChildren.controller");
 const roleController = require("../controllers/role.controller");
+const authController = require("../controllers/auth.controller");
 const authenticateToken = require('../middlewares/authenticateToken');
 const checkPermission = require('../middlewares/checkPermission');
 
@@ -14,10 +15,10 @@ const asyncHandler = fn => (req, res, next) => {
 };
 
 // ===== Auth routes ===== (odatda umumiy, permission talab qilmaydi)
-router.post('/register', asyncHandler(userController.register.bind(userController)));
-router.post('/login', asyncHandler(userController.login.bind(userController)));
-router.post('/refresh-token', asyncHandler(userController.refreshToken.bind(userController)));
-router.get('/me', authenticateToken, asyncHandler(userController.getMe.bind(userController)));
+router.post('/register', asyncHandler(authController.register.bind(authController)));
+router.post('/login', asyncHandler(authController.login.bind(authController)));
+router.post('/refresh-token', asyncHandler(authController.refreshToken.bind(authController)));
+router.get('/me', authenticateToken, asyncHandler(authController.getMe.bind(authController)));
 
 // ===== RBAC (roles management) =====
 router.post(
@@ -41,7 +42,7 @@ router.post(
 router.put(
   '/roles/:name',
   authenticateToken,
-  //checkPermission("update:role"),
+  checkPermission("update:role"),
   asyncHandler(roleController.updateRole.bind(roleController))
 );
 router.delete(
