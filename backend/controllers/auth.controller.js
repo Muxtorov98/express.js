@@ -12,7 +12,7 @@ class AuthController {
 
       const existingUser = await userService.getUserByEmail(email);
       if (existingUser) {
-        return errorResponse(res, 400, "Foydalanuvchi allaqachon mavjud");
+        return errorResponse(res, 422, "Foydalanuvchi allaqachon mavjud");
       }
 
       const salt = await bcrypt.genSalt(10);
@@ -70,7 +70,7 @@ class AuthController {
     try {
       const { refreshToken } = req.body;
       if (!refreshToken) {
-        return errorResponse(res, 400, "Yangilash tokeni kiritish majburiy");
+        return errorResponse(res, 422, "Yangilash tokeni kiritish majburiy");
       }
 
       const decoded = await jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);

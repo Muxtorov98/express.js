@@ -14,9 +14,9 @@ class RegisterDto {
   password;
 
   constructor(data = {}) {
-    this.name = data.name || '';
-    this.email = data.email || '';
-    this.password = data.password || '';
+    this.name = data.name;
+    this.email = data.email;
+    this.password = data.password;
   }
 }
 
