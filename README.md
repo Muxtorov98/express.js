@@ -73,70 +73,71 @@ docker compose up -d --build
 - Mongo Express (GUI): http://localhost:8081 (login: admin, password: admin123)
 
 
-🛠 API Endpoints
-🔑 Authentication
+🛠 # API Endpoints
+🔑 # Authentication
 
 - `POST /api/v1/register` – Register a new user
 - `POST /api/v1/login` – Log in and receive JWT tokens
 - `POST /api/v1/refresh-token` – Refresh access token
 - `GET /api/v1/me` – Get authenticated user details
 
-👤 Users (Requires Authentication)
+👤 # Users (Requires Authentication)
 
-GET /api/v1/users – List all users (requires read:user permission)
-GET /api/v1/users/:id – Get user by ID (requires read:user permission)
-POST /api/v1/users – Create a new user (requires create:user permission)
-PUT /api/v1/users/:id – Update a user (requires update:user permission)
-DELETE /api/v1/users/:id – Delete a user (requires delete:user permission)
+- `GET /api/v1/users` – List all users (requires read:user permission)
+- `GET /api/v1/users/:id` – Get user by ID (requires read:user permission)
+- `POST /api/v1/users` – Create a new user (requires create:user permission)
+- `PUT /api/v1/users/:id` – Update a user (requires update:user permission)
+- `DELETE /api/v1/users/:id` – Delete a user (requires delete:user permission)
 
-🛡 Roles (Requires Authentication)
+🛡 # Roles (Requires Authentication)
 
-POST /api/v1/roles – Create a new role (requires create:role permission)
-PUT /api/v1/roles/:name – Update role permissions (requires update:role permission)
-DELETE /api/v1/roles/:name – Delete a role (requires delete:role permission)
-POST /api/v1/assign-role – Assign roles to a user (requires assign:role permission)
+- `POST /api/v1/roles` – Create a new role (requires create:role permission)
+- `PUT /api/v1/roles/:name` – Update role permissions (requires update:role permission)
+- `DELETE /api/v1/roles/:name` – Delete a role (requires delete:role permission)
+- `POST /api/v1/assign-role` – Assign roles to a user (requires assign:role permission)
 
-📦 Waybills (Requires Authentication)
+📦 # Waybills (Requires Authentication)
 
-POST /api/v1/waybills – Create a new waybill (requires create:waybill permission)
-GET /api/v1/waybills – List all waybills (requires read:waybill permission)
-GET /api/v1/waybills/:id – Get waybill by ID (requires read:waybill permission)
-PUT /api/v1/waybills/:id – Update a waybill (requires update:waybill permission)
-DELETE /api/v1/waybills/:id – Delete a waybill (requires delete:waybill permission)
+- `POST /api/v1/waybills` – Create a new waybill (requires create:waybill permission)
+- `GET /api/v1/waybills` – List all waybills (requires read:waybill permission)
+- `GET /api/v1/waybills/:id` – Get waybill by ID (requires read:waybill permission)
+- `PUT /api/v1/waybills/:id` – Update a waybill (requires update:waybill permission)
+- `DELETE /api/v1/waybills/:id` – Delete a waybill (requires delete:waybill permission)
 
-📦 Products (Requires Authentication)
+📦 # Products (Requires Authentication)
 
-POST /api/v1/products – Create a new product (requires create:product permission)
-GET /api/v1/products – List all products (requires read:product permission)
-GET /api/v1/products/:id – Get product by ID (requires read:product permission)
-PUT /api/v1/products/:id – Update a product (requires update:product permission)
-DELETE /api/v1/products/:id – Delete a product (requires delete:product permission)
+- `POST /api/v1/products` – Create a new product (requires create:product permission)
+- `GET /api/v1/products` – List all products (requires read:product permission)
+- `GET /api/v1/products/:id` – Get product by ID (requires read:product permission)
+- `PUT /api/v1/products/:id` – Update a product (requires update:product permission)
+- `DELETE /api/v1/products/:id` – Delete a product (requires delete:product permission)
 
-📦 Orders (Requires Authentication)
+📦 # Orders (Requires Authentication)
 
-POST /api/v1/orders – Create a new order (requires create:order permission)
-GET /api/v1/orders – List all orders (requires read:order permission)
-GET /api/v1/orders/:id – Get order by ID (requires read:order permission)
-PUT /api/v1/orders/:id – Update an order (requires update:order permission)
-DELETE /api/v1/orders/:id – Delete an order (requires delete:order permission)
+- `POST /api/v1/orders` – Create a new order (requires create:order permission)
+- `GET /api/v1/orders` – List all orders (requires read:order permission)
+- `GET /api/v1/orders/:id` – Get order by ID (requires read:order permission)
+- `PUT /api/v1/orders/:id` – Update an order (requires update:order permission)
+- `DELETE /api/v1/orders/:id` – Delete an order (requires delete:order permission)
 
-📩 SMS (Requires Authentication)
+📩 # SMS (Requires Authentication)
 
-POST /api/v1/sms – Queue an SMS notification (requires create:sms permission)
-
-
-🔒 Role-Based Access Control (RBAC)
-
-User Role: Limited to managing own data (e.g., read:user for own profile).
-Admin Role: Full access to all resources (create:*, read:*, update:*, delete:* for user, product, order, waybill, role, sms).
-Permissions are enforced via the checkPermission middleware.
+- `POST /api/v1/sms` – Queue an SMS notification (requires create:sms permission)
 
 
-📖 Swagger Documentation
-Access auto-generated API documentation at:👉 http://localhost:3000/api-docs
-Use the Authorize button in Swagger UI to input a Bearer token for authenticated endpoints.
+🔒 # Role-Based Access Control (RBAC)
 
-📂 Project Structure
+- User Role: Limited to managing own data (e.g., read:user for own profile).
+- Admin Role: Full access to all resources `(create:*, read:*, update:*, delete:* for user, product, order, waybill, role, sms)`.
+- Permissions are enforced via the checkPermission middleware.
+
+
+📖 # Swagger Documentation
+- Access auto-generated API documentation at:👉 http://localhost:3000/api-docs
+- Use the Authorize button in Swagger UI to input a Bearer token for authenticated endpoints.
+
+📂 # Project Structure
+`
 express.js/
 ├── backend/
 │   ├── config/              # Database and Swagger configurations
@@ -158,78 +159,47 @@ express.js/
 ├── docker-compose.yml       # Docker configuration
 ├── package.json             # Project dependencies and scripts
 └── README.md                # Project documentation
+`
 
+🐳 # Docker Compose Setup
+- The docker-compose.yml file defines three services:
 
-🐳 Docker Compose Setup
-The docker-compose.yml file defines three services:
+- node_backend: Express.js API `(port: 3000)`
+- mongo: MongoDB database `(port: 27017)`
+- mongo-express: MongoDB GUI `(port: 8081, credentials: admin/admin123)`
 
-node_backend: Express.js API (port: 3000)
-mongo: MongoDB database (port: 27017)
-mongo-express: MongoDB GUI (port: 8081, credentials: admin/admin123)
-
-To stop the services:
+# To stop the services:
+```bash
 docker compose down
+```
 
+🔧 # Configuration
+- Environment Variables
 
-🔧 Configuration
-Environment Variables
-
-PORT: Server port (default: 3000)
+- PORT: `Server port (default: 3000)`
+```.env
 MONGO_URI: MongoDB connection string
 JWT_SECRET: Secret for JWT signing
 JWT_EXPIRES_IN: Access token expiration (e.g., 1d)
 TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER: Twilio credentials for SMS
 REDIS_HOST, REDIS_PORT: Redis connection details
+```
+# Role Initialization
+- Initialize default roles (admin, user, etc.) with:
+- node backend/scripts/initRoles.js
 
-Role Initialization
-Initialize default roles (admin, user, etc.) with:
-node backend/scripts/initRoles.js
+# Swagger UI
+-- Test endpoints interactively via `http://localhost:3000/api-docs`.
 
+📄 # License
+- This project is licensed under the MIT License. See the LICENSE file for details.
 
-🧪 Testing
-Manual Testing
-Use tools like Postman or cURL to test endpoints:
-# Register a user
-curl -X POST http://localhost:3000/api/v1/register -H "Content-Type: application/json" -d '{"name":"Test","email":"test@example.com","password":"password","phone":"+998901234567"}'
+🌟 # Acknowledgments
 
-# Queue an SMS
-curl -X POST http://localhost:3000/api/v1/sms -H "Authorization: Bearer <token>" -H "Content-Type: application/json" -d '{"to":"+998901234567","message":"Test SMS"}'
-
-Swagger UI
-Test endpoints interactively via http://localhost:3000/api-docs.
-
-🛠 Troubleshooting
-
-MongoDB Connection Issues: Ensure MONGO_URI is correct and MongoDB is running (docker ps pl-5).
-Redis Issues: Verify Redis is running (docker ps) and REDIS_HOST/REDIS_PORT are set.
-Twilio Errors: Check Twilio credentials in .env and validate phone numbers in E.164 format.
-RBAC Errors: Confirm user roles and permissions in MongoDB:db.roles.find().pretty();
-db.users.find().pretty();
-
-
-
-
-🤝 Contributing
-Contributions are welcome! Follow these steps:
-
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature).
-Commit your changes (git commit -m "Add your feature").
-Push to the branch (git push origin feature/your-feature).
-Create a Pull Request.
-
-
-📄 License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-🌟 Acknowledgments
-
-Express.js
-Mongoose
+`Express.js`
+`Mongoose`
 jsonwebtoken
 Swagger UI Express
 BullMQ
 Twilio
 
-
-Happy coding! 🚀
