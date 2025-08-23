@@ -76,10 +76,10 @@ docker compose up -d --build
 🛠 API Endpoints
 🔑 Authentication
 
-POST /api/v1/register – Register a new user
-POST /api/v1/login – Log in and receive JWT tokens
-POST /api/v1/refresh-token – Refresh access token
-GET /api/v1/me – Get authenticated user details
+- `POST /api/v1/register` – Register a new user
+- `POST /api/v1/login` – Log in and receive JWT tokens
+- `POST /api/v1/refresh-token` – Refresh access token
+- `GET /api/v1/me` – Get authenticated user details
 
 👤 Users (Requires Authentication)
 
