@@ -198,8 +198,8 @@ REDIS_HOST, REDIS_PORT: Redis connection details
 
 - `Express.js`
 - `Mongoose`
-- jsonwebtoken
-- Swagger UI Express
-- BullMQ
-- Twilio
+- `jsonwebtoken`
+- `Swagger UI Express`
+- `BullMQ`
+- `Twilio`
 
