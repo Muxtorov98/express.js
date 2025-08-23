@@ -1,6 +1,7 @@
 const { successResponse, errorResponse } = require('../utils/response');
 const userService = require("../services/user.service");
 const ResponseUsers = require("../resources/ResourcesUser")
+const ResponseAuth = require("../resources/ResponseAuth");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -85,7 +86,7 @@ class UserController {
 
     const token = await this.generateToken(user);
     const refreshToken = await this.generateRefreshToken(user);
-    const responseData = ResponseUsers.fromUser(user);
+    const responseData = ResponseAuth.fromUser(user);
 
     return successResponse(res, 201, "User registered successfully", { responseData, token, refreshToken });
   } catch (err) {
@@ -110,7 +111,7 @@ class UserController {
 
     const token = await this.generateToken(user);
     const refreshToken = await this.generateRefreshToken(user);
-    const responseData = ResponseUsers.fromUser(user);
+    const responseData = ResponseAuth.fromUser(user);
 
      return successResponse(res, 200, "User logged in successfully", { responseData, token, refreshToken });
    } catch (err) {

@@ -14,6 +14,14 @@ class RoleRepository extends BaseRepository {
     return this.model.findOneAndUpdate({ name }, updateData, { new: true });
   }
 
+  async getDefaultUserRoleId() {
+   const role = await this.findOne({ name: "user" });
+    if (!role) {
+      throw new Error('Роль "user" не найдена');
+    }
+    return role._id;
+  }
+
   async getAllPermissions(roleId) {
   const permissions = new Set();
   let currentRole = await this.findByIdLean(roleId);

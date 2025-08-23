@@ -59,4 +59,12 @@
  *                   type: string
  *       401:
  *         description: Unauthorized
+ * /me:
+ *   get:
+ *     summary: Get about me
+ *     tags:
+ *       - Auth
+ *     responses:
+ *       200:
+ *         description: Successful response
  */
