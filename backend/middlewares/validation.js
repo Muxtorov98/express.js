@@ -32,7 +32,7 @@ const loginSchema = Joi.object({
   }),
 });
 
-/* example 
+/* example controller da foydalanish uchun
 
     const { email, password } = req.body;
 
