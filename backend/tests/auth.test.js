@@ -23,9 +23,7 @@ describe("Auth API - /api/v1/login", () => {
       .send({
         email: "user@example.com"
       });
-
-    // Sizning backend 400 emas, balki 401 qaytaryapti bo‘lishi mumkin.
-    // Shuning uchun statusCode’ni dynamic test qilamiz:
+      
     expect([422, 401]).toContain(res.statusCode);
 
     expect(res.body).toHaveProperty("messages");
@@ -47,7 +45,6 @@ describe("Auth API - /api/v1/login", () => {
 
 });
 
-// 🔻 Test tugaganda Mongo connectionni yopamiz
 afterAll(async () => {
   await mongoose.connection.close();
 });
