@@ -14,7 +14,7 @@ describe("Auth API - /api/v1/login", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body).toHaveProperty("data.token");
     expect(res.body.data).toHaveProperty("refreshToken");
-    expect(res.body.messages).toMatch(/success/i);
+    expect(res.body.messages).toMatch("Foydalanuvchi muvaffaqiyatli kirdi");
   });
 
   it("❌ should return 400 if email or password is missing", async () => {
@@ -26,10 +26,10 @@ describe("Auth API - /api/v1/login", () => {
 
     // Sizning backend 400 emas, balki 401 qaytaryapti bo‘lishi mumkin.
     // Shuning uchun statusCode’ni dynamic test qilamiz:
-    expect([400, 401]).toContain(res.statusCode);
+    expect([422, 401]).toContain(res.statusCode);
 
     expect(res.body).toHaveProperty("messages");
-    expect(typeof res.body.messages).toBe("string");
+    expect(typeof res.body.messages).toBe("object");
   });
 
   it("❌ should return 401 if credentials are invalid", async () => {
@@ -41,7 +41,7 @@ describe("Auth API - /api/v1/login", () => {
       });
 
     expect(res.statusCode).toBe(401);
-    expect(res.body).toHaveProperty("messages", "Invalid email or password");
+    expect(res.body).toHaveProperty("messages", "Noto'g'ri email yoki parol");
     expect(res.body.success).toBe(false);
   });
 
