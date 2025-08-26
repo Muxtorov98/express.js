@@ -2,3 +2,10 @@
 .git
 # node
 /backend/node_modules
+/backend/npm-debug.log
+/backend/Dockerfile
+.dockerignore
+.gitignore
+/backend/tests
+/backend/coverage
+.env

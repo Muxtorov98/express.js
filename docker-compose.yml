@@ -2,25 +2,24 @@ version: "3.8"
 
 services:
   backend:
-    build: ./backend
+    build: .
     container_name: node_backend
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
     depends_on:
       - mongo
-    environment:
-      - MONGO_URI=mongodb://mongo:27017/mydb
     volumes:
-      - ./backend:/usr/src/app
+      - ./:/usr/src/app
       - /usr/src/app/node_modules
+    command: npm run dev
 
   mongo:
     image: mongo:6
     container_name: mongo_db
     restart: unless-stopped
     ports:
-      - "27017:27017"
+      - "127.0.0.1:27017:27017"
     volumes:
       - mongo_data:/data/db
 
@@ -29,7 +28,7 @@ services:
     container_name: mongo_express
     restart: unless-stopped
     ports:
-      - "8081:8081"
+      - "127.0.0.1:8081:8081"
     environment:
       - ME_CONFIG_MONGODB_SERVER=mongo
       - ME_CONFIG_MONGODB_PORT=27017
