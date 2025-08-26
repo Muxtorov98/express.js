@@ -71,6 +71,7 @@ docker compose up -d --build
 - Node.js Backend: http://localhost:3000
 - MongoDB: localhost:27017
 - Mongo Express (GUI): http://localhost:8081 (login: admin, password: admin123)
+- API documentation at:👉 http://localhost:3000/api-docs
 
 # setup
 ```bash
