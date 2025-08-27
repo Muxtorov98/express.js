@@ -163,22 +163,20 @@ docker compose exec backend node /usr/src/app/scripts/setup.js
 📂 # Project Structure
 ```bash
 express.js/
-├── backend/
-│   ├── config/              # Database and Swagger configurations
-│   ├── controllers/         # Business logic for handling requests
-│   ├── dtos/                # Data Transfer Objects for input validation
-│   ├── middlewares/         # Authentication, RBAC, and error handling
-│   ├── models/              # Mongoose schemas
-│   ├── queues/              # Redis queue configurations (e.g., SMS jobs)
-│   ├── repositories/        # Data access layer
-│   ├── resources/           # Response formatting utilities
-│   ├── routes/              # API route definitions
-│   ├── scripts/             # Utility scripts (e.g., role initialization)
-│   ├── services/            # Business logic layer
-│   ├── utils/               # Helper functions (e.g., response formatting)
-│   ├── app.js               # Express app setup
-│   ├── server.js            # Server entry point
-│   └── .env                 # Environment variables for backend
+│── config/              # Database and Swagger configurations
+│── controllers/         # Business logic for handling requests
+│── dtos/                # Data Transfer Objects for input validation
+│── middlewares/         # Authentication, RBAC, and error handling
+│── models/              # Mongoose schemas
+│── queues/              # Redis queue configurations (e.g., SMS jobs)
+│── repositories/        # Data access layer
+│── resources/           # Response formatting utilities
+│── routes/              # API route definitions
+│── scripts/             # Utility scripts (e.g., role initialization)
+│── services/            # Business logic layer
+│── utils/               # Helper functions (e.g., response formatting)
+│── app.js               # Express app setup
+│── server.js            # Server entry point
 ├── .env                     # Environment variables for Docker Compose
 ├── docker-compose.yml       # Docker configuration
 ├── package.json             # Project dependencies and scripts
